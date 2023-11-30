@@ -1,0 +1,34 @@
+﻿Rank,District,Event,Exposure,Sensitivity,Adaptive_Capacity,Vulnerability_Index,Vulnerability
+81,Tinsukia,Flood,0.7,0.85,0.47,0.497,High
+1,Dhemaji,Flood,0.98,0.9,0.35,1,Very High
+18,Dibrugarh,Flood,0.95,0.98,0.44,0.791,Very High
+10,Lakhimpur,Flood,0.95,0.87,0.41,0.869,Very High
+88,Sivasagar,Flood & Drought,0.93,0.63,0.51,0.483,High
+44,Jorhat,Flood,0.93,0.88,0.49,0.663,Very High
+32,Sonitpur,Flood,0.91,0.87,0.45,0.709,Very High
+24,Golaghat,Flood,0.94,0.87,0.44,0.745,Very High
+,Udalguri,,,,,0,
+192,Chirang,Flood,0.28,0.93,0.39,0.225,Moderate
+,Baksa,,,,,0,
+1,Nagaon,"Flood, Drought & Cyclone",0.83,0.89,0.47,1,Very High
+272,Kokrajhar,Flood,0,0.86,0.39,0,Very Low
+13,Darrang,Flood & Drought,0.96,0.8,0.38,0.85,Very High
+42,Barpeta,Flood & Drought,0.97,0.74,0.45,0.671,Very High
+128,Nalbari,Flood & Drought,0.45,0.85,0.44,0.365,Moderate
+,Morigaon,,,,,0,
+101,Kamrup,Flood,0.59,0.89,0.44,0.441,High
+36,Bongaigaon,Flood,0.81,0.87,0.41,0.698,Very High
+16,Dhubri,Flood,0.98,0.88,0.43,0.796,Very High
+,Kamrup Metropolitan,,,,,0,
+26,Goalpara,Flood & Drought,0.86,0.86,0.43,0.74,Very High
+,Dima Hasao,,,,,0,
+84,Cachar,Flood & Drought,0.96,0.61,0.5,0.492,High
+67,Karimganj,Flood,0.91,0.93,0.47,0.542,High
+193,Hailakandi,Flood,0.28,0.92,0.42,0.222,Moderate
+,Charaideo,,,,,0,
+,Majuli,,,,,0,
+,Biswanath,,,,,0,
+,Hojai,,,,,0,
+,South Salmara Mancachar,,,,,0,
+29,Karbi Anglong,Flood,0.78,0.86,0.4,0.729,Very High
+,West Karbi Anglong,,,,,0,
