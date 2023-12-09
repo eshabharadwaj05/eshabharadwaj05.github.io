@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css"> 
+        /*Internal CSS styling to set font size, line height, and font style/family; also introducing some selectors*/
+        h1{font-size: 40pt; text-align: center; font-family: sans-serif} /*tag selector*/
+        h2{color:darkgreen ;font-size: 25pt; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;margin-left: 10pt; margin-right: 10pt;}
+		h3{color:darkcyan;font-size: 20pt;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;margin-left: 10pt; margin-right: 10pt;}
+		h4{font-size: 16; font-style:bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+			
+		.header { 
+			width: 100%; 
+			background-image: url(Images/1.jpg); 
+			background-size: cover; 
+			background-position: center; 
+		} 
+		.header > h1 { 
+			color: white;
+			background-color: rgba(0,0,0,0.3); 
+			padding: 2.5em 1em;  
+		} 
+
+		p {
+    		margin-top: 10px;
+    		margin-bottom: 20px;
+			margin-left: 10px;
+			margin-right: 10px;
+			line-height: 2;
+			font-size: 13pt;
+			font-family: Arial, Helvetica, sans-serif;
+			p:first-letter {font-size: 200%,}
+		}
+
+		.green-text {
+    		color: darkgreen;
+			text-transform: none;
+		}
+
+		.cyan-text {
+    		color: darkcyan;
+			text-transform: none;
+		}
+		.container {
+    		display: flex;
+    		align-items: center;
+		}
+
+		figure {
+			font-size: 10pt;
+			font-family: sans-serif;
+    		margin: 0 20px 20px 0;
+		}
+
+		.center {
+  			display: block;
+  			margin-left: auto;
+  			margin-right: auto;
+			width:50%;
+		}
+
+		div {
+			text-align: center;
+		}
+
+ </style>
+
+	<title>Final Web Mapping Project</title>
+
+</head>
+
+
+<body bgcolor="azure">
+
+    <header class="header"> 
+		<h1>Climate Vulnerability Risk in India</h1> 
+	</header>  
+
+<hr>
+
+<h2>Climate Vulnerability in India</h2>
+<figure style="float: left;">
+	<img src="Images/3.png", alt = "Assam Floods", width="700px", height="100%",border="solid">
+	<figcaption>Assam Floods 2023, Source: The Weather Channel, August 2023</figcaption>
+</figure>
+<br>
+<br>
+<br>
+<p> 
+	India is the seventh most vulnerable country with regards to climate extremes (Germanwatch2020, cited in Mohanty & Wadhawan, 2021). 
+	The image on the left is from the 2023 floods in Assam, a state in the North-Eastern region of India that is ranked have the highest climate vulnerability.
+</p>
+<br>
+<br>
+<br>
+<br>
+<!--
+<figure>
+	<div><img src = "Images/9.png", alt = "Disaster Types"></div>
+</figure>
+-->
+<figure style="float: right;">
+	<img src="Images/12.png", alt = "Natural Disaster Map",width="600px", height="600px",border="solid">
+	<figcaption>Source: Mohanty, 2020; cited in Mohanty & Wadhawan, 2021</figcaption>
+</figure>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p>
+	About 75% of districts in India are hotspots for extreme events. The map on the right shows extreme event hotpots at the district level for the country. 
+	The nine states with a coastline – Gujarat, Maharashtra, Goa, Karnataka, Kerala, Tamil Nadu, Andhra Pradesh, Odisha, and West Bengal – are specifically highlighted, 
+	and showcase that almost all the coastal districts (95%) are hotspots for at least one extreme event (Mohanty & Wadhawan, 2021).
+</p>
+<p>
+	The Climate Vulnerability Index, or CVI, is a micro-level vulnerability assessment that maps the climate vulnerability for the states in India (Mohanty & Wadhawan, 2021). 
+	It takes exposure (likelihood of hazards to occur), sensitivity (hazard’s impact on people and livelihoods), and adaptive capacity (ability to cope from the hazard’s impacts), 
+	the three key elements of vulnerability into consideration. 
+</p>
+
+<figure><div>
+	<img src="Images/5.png", alt = "CVI", width="500px", height="100%",border="solid">
+	<figcaption style = "font-family: sans-serif;"> Vulnerability Function; Source: Mohanty & Wadhawan 2021 </figcaption></div>
+</figure>
+
+<br>
+<h3>Climate Vulnerability Index of States in India</h3>
+	<div> 
+		<iframe src="Map1.html" height="500px" width="800px" frameborder="0"></iframe>
+	</div>
+	<p>
+		The index falls in a range from 0 – 1 where higher values (closer to 1) indicate higher vulnerability and lower values (closer to 0) indicate lower vulnerability. 
+		The legend in the map above is at 0.1 intervals from 0 to 0.6+ because the highest index value for a state is 0.616. The five most vulnerable states are Assam, 
+		Andhra Pradesh, Maharashtra, Karnataka, and Bihar. There are a few states that have an index value of 0 denoting that there is no climate vulnerability, 
+		suggesting an uncertainty in the data’s reliability.
+	</p> 
+	<p>
+		The map and table below show the vulnerability for the three extreme disaster events incorporated in the index – flood, drought, and cyclone – 
+		for the administrative zones.
+	</p>
+
+<figure><div>
+	<!--<img src="Images/13.png", alt = "Zones Map",width="400px", height="400px",border="solid">-->
+	<iframe src="Map3.html" height="450px" width="600px" frameborder="0"></iframe>
+	<img src = "Images/10.png", alt = "Zonal Data" height="350" width="600px">
+	<figcaption><!--Administrative zones of India &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+	Extreme event vulnerability by zone; Source: Mohanty & Wadhawan 2021
+	</figcaption>
+</div></figure>
+
+<h3>Climate Vulnerability Index of Assam</h3>
+<div> 
+	<iframe src="Map2.html" height="500px" width="800px" frameborder="0"></iframe>
+</div>
+<p>
+	The state of Assam in the North-Eastern zone of India has the highest vulnerability index score. The map above shows the CVI for the districts in Assam. 
+	Dhemaji and Nagaon have the highest scores of 1. The legend is at 0.2 intervals from 0 to 0.8+ to evenly contain all the values from the lowest index of 
+	0 to the highest index of 1. There are some districts for which no data was available which are shown in the grey color on the map.
+</p>
+
+<h2> More on the Climate Vulnerability Index (CVI) </h2>
+
+	<figure style="float:left">
+		<img src="Images/6.png", alt = "SREX Framework", width="800px", height="100%",border="solid">
+		<figcaption>SREX Framework; Source: IPCC 2014, cited in Mohanty & Wadhawan 2021</figcaption>
+	</figure>
+<p>
+	The CVI is based on IPCC’s SREX framework. It examines the intersections between vulnerability, exposure, and hazards, 
+	and how they collectively contribute to the disaster risk, as well as the influences and implications of natural climate variations, 
+	climate change as a result of anthropogenic forces, and development trends on ecosystems and human communities (Field et al., 2012).
+</p>
+
+<br>
+	<figure>
+		<div><img src = "Images/8.png", alt = "Sources">
+		<figcaption>
+			Shortlisted indicators for the climate vulnerability index assessment; Source: Mohanty & Wadhawan 2021
+		</figcaption></div>
+	</figure>
+
+	<figure>
+		<div><img src = "Images/11.png", alt = "Zonal Data Detailed">
+		<figcaption>Zone-wise extreme event vulnerability for exposure, sensitivity, and adaptive capacity; Source: Mohanty & Wadhawan 2021</figcaption></div>
+	</figure>
+
+<h4>Sources</h4>
+<p>
+	<ul>
+		<li><a href="https://www.ceew.in/sites/default/files/ceew-study-on-climate-change-vulnerability-index-and-district-level-risk-assessment.pdf" target="_blank" rel="noopener noreferrer">The CVI data was retrieved from a report by the Council on Energy, Environment, and Water (CEEW) In India, authored by Mohanty & Wadhawan in 2021. </a></li>
+		<li><a href="https://github.com/datta07/INDIAN-SHAPEFILES/blob/master/INDIA/INDIA_STATES.geojson" target="_blank" rel="noopener noreferrer">GeoJSON India states layer shapefile</a></li>
+		<li><a href="https://github.com/datta07/INDIAN-SHAPEFILES/blob/master/STATES/ASSAM/ASSAM_DISTRICTS.geojson" target="_blank" rel="noopener noreferrer">GeoJSCO Assam states layer shapefile</a></li>
+		<li><a href="https://www.ipcc.ch/site/assets/uploads/2018/03/SREX_Full_Report-1.pdf" target="_blank" rel="noopener noreferrer">Managing the Risks of Extreme Events and Disasters authored by Field et al., 2012.</a></li>
+		<li><a href="https://www.jetsetter.com/magazine/most-beautiful-places-to-visit-in-india/" target="_blank" rel="noopener noreferrer">Header Image</a></li>
+	</ul>
+</p>
+<hr>
+<br>
+</body>
+</html>
+

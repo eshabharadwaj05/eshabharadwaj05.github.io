@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Map 3</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+	<style>#map { width: 800px; height: 500px; }
+.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }</style>
+</head>
+<body>
+
+<div id='map' class="leaflet-container leaflet-touch leaflet-safari leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex = "0" ></div>
+<!--Source is now from the JoinedPotosi jsonfile-->
+<script type="text/javascript" src="India_Zones.geojsonl.json"></script>
+
+<script type="text/javascript">
+
+	const map = L.map('map').setView([21.5937, 82.9629], 4); // Resetting coordinates and zoom
+
+	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+
+	// control that shows state info on hover
+	const info = L.control();
+
+	info.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'info');
+		this.update();
+		return this._div;
+	};
+// updating to STNAME and Zone
+	info.update = function (props) {
+		const contents = props ? `<b>${props.Zone}</b> (${props.STNAME_SH})</b><br />Flood Vulnerability: ${props.Flood}<br />Drought Vulnerability: ${props.Drought}<br />Cyclone Vulnerability: ${props.Cyclone}` : 'Hover over a state';
+		this._div.innerHTML = `<h4>Administrative Zone</h4>${contents}`;
+	};
+
+	info.addTo(map);
+
+
+	// get color depending on zone
+	function getColor(d) {
+		return d == "Northern" ? 'purple' :
+			d == "Central"  ? 'darkblue' :
+			d == "Eastern"  ? 'teal' :
+			d == "North-Eastern"  ? 'brown' :
+			d == "Western"   ? 'green' :
+			d == "Southern"   ? 'gold' : '#FFEDA0';
+	}
+
+	function style(feature) {
+		return {
+			weight: 2,
+			opacity: 1,
+			color: 'white',
+			dashArray: '3',
+			fillOpacity: 0.7,
+			fillColor: getColor(feature.properties.Zone)
+		};
+	}
+
+	function highlightFeature(e) {
+		const layer = e.target;
+
+		layer.setStyle({
+			weight: 5,
+			color: '#666',
+			dashArray: '',
+			fillOpacity: 0.7
+		});
+
+		layer.bringToFront();
+
+		info.update(layer.feature.properties);
+	}
+
+	/* global statesData */
+	const geojson = L.geoJson(statesData, {
+		style,
+		onEachFeature
+	}).addTo(map);
+
+	function resetHighlight(e) {
+		geojson.resetStyle(e.target);
+		info.update();
+	}
+
+	function zoomToFeature(e) {
+		map.fitBounds(e.target.getBounds());
+	}
+
+	function onEachFeature(feature, layer) {
+		layer.on({
+			mouseover: highlightFeature,
+			mouseout: resetHighlight,
+			click: zoomToFeature
+		});
+	}
+// Adding Data Source
+	map.attributionControl.addAttribution('Climate Vulnerability data &copy; <a href="https://www.ceew.in/sites/default/files/ceew-study-on-climate-change-vulnerability-index-and-district-level-risk-assessment.pdf"> Council on Energy, Environment, and Water</a>');
+
+// Adding Legend
+	const legend = L.control({position: 'bottomright'});
+
+	legend.onAdd = function (map) {
+
+		const div = L.DomUtil.create('div', 'info legend');
+		const categories = ["Northern", "Central", "Eastern", "North-Eastern", "Western", "Southern"];
+		const labels = [];
+        
+        for (let i = 0; i < categories.length; i++) {
+            const category = categories[i];
+            const color = getColor(category);
+
+            div.innerHTML += `<i style="background:${color}"></i> ${category}<br>`;
+
+		}
+
+		return div;
+	};
+
+	legend.addTo(map);
+
+
+// Adding a home button
+var homeButton = L.Control.extend({
+    options: {
+        position: 'topleft' //location of button on map
+    },
+
+    onAdd: function (map) {
+        var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+        container.innerHTML = '<button class="leaflet-control-home" title="Home" onclick="goHome()">🏠</button>';
+        return container;
+    }
+});
+
+map.addControl(new homeButton()); // adding to map
+
+// Using home button to reset map to the default position (same as coordinates above)
+function goHome() {
+    map.setView([21.5937, 82.9629], 4);
+}
+
+
+
+</script>
+
+
+
+</body>
+</html>
+
